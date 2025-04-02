@@ -3,9 +3,9 @@ name: Testar_Noturno
 on:
   schedule:
     - cron: '0 23 * * * '
-  push:
-    branches:
-      - main2
+ # push:
+  #  branches:
+   #   - main2
 jobs:
   teste_norturno:
     runs-on: self-hosted

@@ -26,3 +26,6 @@ on:
         run: |
           cd app/
           python -m unittest testeapp_homolog.py
+      - name: Docker Login
+        run: |
+          echo ${{ secrets.DOCKERHUB_TOKEN}} | docker login --username ${{secrets.DOCKERHUB_USER}} --password-stdin
