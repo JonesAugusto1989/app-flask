@@ -28,6 +28,10 @@ jobs:
         run: docker build . -t jonesparanhos/flask-acme:latest    
       - name: Docker Push
         run: docker push jonesparanhos/flask-acme:latest
+      - name: Install kubectl
+        uses: Azure/setup-kubectl@v3
+        with:
+          version: 'v1.29.2
       - name: Deploy K8s
         run: kuberctl rollout restart deploy flask-acme -n acme
-     
+        shell: cmd 
