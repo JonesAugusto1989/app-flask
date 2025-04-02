@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: '0 23 * * * '
   push:
-    branchs:
+    branches:
       - main
 jobs:
   teste_norturno:
