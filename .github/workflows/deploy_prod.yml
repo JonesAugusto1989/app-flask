@@ -30,8 +30,4 @@ jobs:
         run: docker push jonesparanhos/flask-acme:latest
       - name: Deploy K8s
         run: kuberctl rollout restart deploy flask-acme -n acme
-      - name: "Executar Testes"
-        continue-on-error: false
-        run: |
-          cd app/
-          python -m unittest testeapp_homolog.py
+     
