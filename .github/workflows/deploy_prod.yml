@@ -4,7 +4,7 @@ on:
   push:
     branchs:
       - main
-  jobs:
+jobs:
   upload_to_homolog:
     runs-on: self-hosted
     steps:
