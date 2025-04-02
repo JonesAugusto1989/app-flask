@@ -12,4 +12,4 @@ jobs:
     steps:
       - name: "Iniciando JOB"
         run: | 
-          run: echo "Iniciando JOB em %DATE% %TIME%"
+          run: echo "Iniciando JOB  em %DATE% %TIME%"
