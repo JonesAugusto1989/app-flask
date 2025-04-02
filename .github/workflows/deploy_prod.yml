@@ -31,3 +31,5 @@ jobs:
           echo "${{ secrets.DOCKERHUB_TOKEN}} | docker login --username ${{secrets.DOCKERHUB_USER}} --password-stdin"
       - name: Docker Build
         run: docker build . -t jonesparanhos/flask-acme:latest    
+      - name: Docker Push
+        run: docker push jonesparanhos/flask-acme:latest
