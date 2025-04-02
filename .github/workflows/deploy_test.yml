@@ -5,7 +5,7 @@ on:
     - cron: '0 23 * * * '
  # push:
   #  branches:
-   #   - main2
+   #@   - main2
 jobs:
   teste_norturno:
     runs-on: self-hosted
