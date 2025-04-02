@@ -31,4 +31,4 @@ jobs:
       - name: "Notificar falha"
         if: failure()
         run: |
-          curl -X POST -H "Content-Type: application/json" -d "{\"content\": \"Mensagem de Teste!\"}" ${{secret.DISCORD_WEB_HOOK}}
+          curl -X POST -H "Content-Type: application/json" -d "{\"content\": \"Mensagem de Teste!\"}" ${{secrets.DISCORD_WEB_HOOK}}
