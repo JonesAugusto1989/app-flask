@@ -24,6 +24,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: "Executar Testes"
+        continue-on-error: false
         run: |
           cd app/
           python -m unittest testeapp_homolog.py
+      - name: "Notificar falha"
+        if: failure()
+        run |
+          curl -X POST -H "Content-Type: application/json" -d "{\"content\": \"Mensagem de Teste!\"}" https://discord.com/api/webhooks/1356823050292559908/i2xRSwZaQzghlqMWx50uuP-CTlQoxwAx6qJXf-yxq1AENIqCNRcqq2LlN9qqeqrx-U5p
