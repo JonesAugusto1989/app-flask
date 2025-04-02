@@ -34,4 +34,3 @@ jobs:
           version: 'v1.29.2
       - name: Deploy K8s
         run: kuberctl rollout restart deploy flask-acme -n acme
-        shell: cmd 
