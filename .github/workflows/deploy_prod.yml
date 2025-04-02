@@ -34,4 +34,17 @@ jobs:
           version: 'v1.29.2'
       - name: Deploy K8s
         run: kubectl rollout restart deploy flask-acme -n acme
-     
+      - name: Verify Deploy
+        run: kubectl rollout status deploy flask-acme -n acme
+      - name: "Executar Testes"
+        continue-on-error: false
+        run: |
+          cd app/
+          python -m unittest testeapp_homolog.py
+      - name: "Notificar falha"
+        if: failure()
+        run: |
+          Invoke-RestMethod -Uri "https://discord.com/api/webhooks/1356823050292559908/i2xRSwZaQzghlqMWx50uuP-CTlQoxwAx6qJXf-yxq1AENIqCNRcqq2LlN9qqeqrx-U5p" -Method POST -ContentType "application/json" -Body '{"content": "FALHOU!"}'
+      - name: "Notificar sucesso"
+        run: |
+          Invoke-RestMethod -Uri "https://discord.com/api/webhooks/1356823050292559908/i2xRSwZaQzghlqMWx50uuP-CTlQoxwAx6qJXf-yxq1AENIqCNRcqq2LlN9qqeqrx-U5p" -Method POST -ContentType "application/json" -Body '{"content": "PASSOU!"}'
