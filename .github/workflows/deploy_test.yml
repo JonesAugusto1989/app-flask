@@ -31,5 +31,7 @@ jobs:
       - name: "Notificar falha"
         if: failure()
         run: |
-          Invoke-RestMethod -Uri "https://discord.com/api/webhooks/1356823050292559908/i2xRSwZaQzghlqMWx50uuP-CTlQoxwAx6qJXf-yxq1AENIqCNRcqq2LlN9qqeqrx-U5p" -Method POST -ContentType "application/json" -Body '{"content": "Mensagem de Teste!"}'
-
+          Invoke-RestMethod -Uri "https://discord.com/api/webhooks/1356823050292559908/i2xRSwZaQzghlqMWx50uuP-CTlQoxwAx6qJXf-yxq1AENIqCNRcqq2LlN9qqeqrx-U5p" -Method POST -ContentType "application/json" -Body '{"content": "FALHOU!"}'
+      - name: "Notificar sucesso"
+        run: |
+          Invoke-RestMethod -Uri "https://discord.com/api/webhooks/1356823050292559908/i2xRSwZaQzghlqMWx50uuP-CTlQoxwAx6qJXf-yxq1AENIqCNRcqq2LlN9qqeqrx-U5p" -Method POST -ContentType "application/json" -Body '{"content": "PASSOU!"}'
